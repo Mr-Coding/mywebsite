@@ -110,14 +110,27 @@ a{
     height: 30px;
     line-height: 30px;
     margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    width: 140px;
     /* border: 1px solid #000; */
 }
+.github-icon{
+    margin-right: 5px;
+}
 .github-icon,.coding-icon{
-    display: inline;
+    display: inline-flex;
+    align-items: center;
+}
+embed{
+    margin-right: 5px;
+    margin-top: -2px;
 }
 .github-icon a,.coding-icon a{
     color: #000;
     font-size: 10px;
+    margin: 0;
+    line-height: 10px;
 }
 
 
