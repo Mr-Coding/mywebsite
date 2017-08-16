@@ -39,6 +39,7 @@ li{
     top: 0;
     /* background-color: rgba(0, 0, 0, .1); */
     line-height: 80px;
+    z-index: 999;
 }
 .welcome{
     font-size: 32px;
@@ -58,15 +59,15 @@ li{
 
 /*------------------------------------*/
 .banner-wrap{
-    height: 400px;
-    background-image: url(http://23.106.158.25:8080/Project_BackSky_New/data/uploadimg/compressed/banner.jpg);
+    /* height: 400px; */
+    /* background-image: url(http://23.106.158.25:8080/Project_BackSky_New/data/uploadimg/compressed/banner.jpg); */
     /* background-size: 100%; */
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat;
     background-size: auto 400px;
     background-position: center;
-    text-align: center;
+    text-align: center; */
     /* line-height: 400px; */
-    /* background-attachment: fixed; */
+    background-color: #F5F7F9;
 }
 .logo{
     color: #fff;
@@ -82,8 +83,6 @@ li{
     /* height: 400px; */
     background-color: #F5F7F9;
     /* border: 1px solid #ED3434; */
-}
-.body-wrap div:last-child{
 }
 .info-wrap{
     height: 450px;
