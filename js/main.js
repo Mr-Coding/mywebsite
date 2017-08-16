@@ -1,4 +1,3 @@
-$("#blog-warp")
 var blogs = {};
 
 $.ajax({
@@ -11,7 +10,6 @@ $.ajax({
 })
 
 function mekeList(data){
-    // console.log(data);
     let content = "";
     for(let i = 0;i < data.length;i ++){
         content = content + `<div class="blog-info">
@@ -20,6 +18,4 @@ function mekeList(data){
                 </div>`;
     }
     $(".pagination-warp").before(content);
-    // console.log("内容："+content);
-    
 }
