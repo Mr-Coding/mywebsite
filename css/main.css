@@ -2,10 +2,14 @@
     padding: 0px;
     margin: 0px;
     font-family: "微软雅黑";
+    box-sizing: border-box;
 }
 a{
     text-decoration: none;
     color: #fff;    
+}
+li{
+    list-style:none;
 }
 
 .container{
@@ -73,7 +77,7 @@ a{
 
 /*------------------------------------*/
 .body-wrap{
-    height: 1000px;
+    height: 700px;
     background-color: #F1F4F7;
 }
 .info-wrap{
@@ -174,6 +178,59 @@ embed{
 }
 
 .blog-wrap{
-    height: 800px;
-    background-color: rgba(184, 37, 37, 0.10);
+    /* height: 800px; */
+    /* background-color: rgba(184, 37, 37, 0.10); */
+    padding-top: 35px;
+}
+.blog-info{
+    width: 660px;
+    height: 100px;
+    margin-bottom: 20px;
+    padding-top: 10px;
+    color: #666666;
+    /* background-color: rgb(255, 255, 255); */
+    border-bottom: 1px solid #C8C7C7;
+}
+.blog-info a{
+    display: block;
+    color: #666666;
+    font-size: 32px;
+    padding: 20px 10px 5px 10px;
+}
+.blog-info a:hover{
+    color: #000;
+}
+.blog-info .time,.blog-info .author{
+    font-size: 14px;
+    display: inline;
+}
+.blog-info .time{
+    margin-left: 10px;
+}
+
+.pagination-warp{
+    height: 50px;
+    display: inline-block;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    /* background-color: rgb(104, 131, 234); */
+}
+.pagination-warp a{
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    line-height: 50px;
+    color: #000;
+    text-align: center;
+    padding: 0px;
+}
+.pagination-warp li{
+    float: left;
+}
+.pages:hover{
+    background-color: #ccc;
+}
+.next,.previous{
+    background-color: #BFE1EA;
 }
