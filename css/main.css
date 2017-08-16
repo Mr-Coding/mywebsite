@@ -214,6 +214,7 @@ embed{
     margin: 0 auto;
     margin-top: 30px;
     margin-bottom: 30px;
+    bottom: 0px;
     /* background-color: rgb(104, 131, 234); */
 }
 .pagination-warp a{
