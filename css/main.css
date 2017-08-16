@@ -60,8 +60,10 @@ li{
 .banner-wrap{
     height: 400px;
     background-image: url(http://23.106.158.25:8080/Project_BackSky_New/data/uploadimg/compressed/banner.jpg);
-    background-size: 100%;
+    /* background-size: 100%; */
     background-repeat: no-repeat;
+    background-size: auto 400px;
+    background-position: center;
     text-align: center;
     /* line-height: 400px; */
     /* background-attachment: fixed; */
