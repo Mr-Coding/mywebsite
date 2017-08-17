@@ -46,7 +46,7 @@ li{
 }
 .welcome{
     font-size: 32px;
-    margin-left: 20px;
+    margin-left: 35px;
 }
 .nav{
     float: right;
@@ -55,6 +55,9 @@ li{
     font: 20px;
     margin: 20px;
     color: #E4E4E4;
+}
+.nav .item:last-child{
+    margin-right: 45px;
 }
 .nav .item:hover{
     color: #fff;
@@ -219,6 +222,15 @@ embed{
 }
 .blog-info .time{
     margin-left: 10px;
+}
+.blog-info .tags{
+    display: inline;
+    background-color: #A1A0A0;
+    color: #fff;
+    border-radius: 15px;
+    padding: 1px 8px 2px 8px;
+    font-size: 12px;
+    transform: scale(0.55)
 }
 
 .pagination-warp{
