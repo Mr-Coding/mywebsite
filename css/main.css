@@ -223,14 +223,28 @@ embed{
 .blog-info .time{
     margin-left: 10px;
 }
-.blog-info .tags{
+.tag-wrap{
     display: inline;
-    background-color: #A1A0A0;
-    color: #fff;
+    float: right;
+    /* background-color: rgb(104, 131, 234); */
+}
+.blog-info .tag{
+    display: inline;
+    right: 0px;
+    border: 1px solid #A1A0A0;
+    /* color: #fff; */
     border-radius: 15px;
-    padding: 1px 8px 2px 8px;
+    padding: 0px 8px 0px 8px;
+    margin: 0px 5px;
     font-size: 12px;
-    transform: scale(0.55)
+    /* transform: scale(0.55); */
+    font-family: "Arial";
+    border: 1px solid #A1A0A0;    
+}
+.blog-info .tag:hover{
+    background-color: #A1A0A0;
+    border: 1px solid #A1A0A0;
+    color: #fff;
 }
 
 .pagination-warp{
