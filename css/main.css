@@ -62,15 +62,18 @@ li{
 
 /*------------------------------------*/
 .banner-wrap{
-    /* height: 400px; */
-    /* background-image: url(http://23.106.158.25:8080/Project_BackSky_New/data/uploadimg/compressed/banner.jpg); */
-    /* background-size: 100%; */
-    /* background-repeat: no-repeat;
-    background-size: auto 400px;
-    background-position: center;
-    text-align: center; */
-    /* line-height: 400px; */
+    height: 360px;
     background-color: #F5F7F9;
+}
+.banner-wrap img{
+    width: 100%;
+    min-width: 1082px;
+    height: 360px;
+    filter: blur(0px);
+    transition: all 0.3;
+    left: 50%;
+    transform: translate(-50%,0);
+    position: absolute;
 }
 .logo{
     color: #fff;
