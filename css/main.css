@@ -33,12 +33,16 @@ li{
 
 /*------------------------------------*/
 .nav-wrap{
-    height: 80px;
+    height: 60px;
     width: 100%;
     position: fixed;
     top: 0;
+    /* background-color: #1F617B; */
+    line-height: 60px;
+    z-index: 999;
+}
+.nav-wrap .container{
     /* background-color: rgba(0, 0, 0, .1); */
-    line-height: 80px;
 }
 .welcome{
     font-size: 32px;
@@ -58,15 +62,15 @@ li{
 
 /*------------------------------------*/
 .banner-wrap{
-    height: 400px;
-    background-image: url(http://23.106.158.25:8080/Project_BackSky_New/data/uploadimg/compressed/banner.jpg);
+    /* height: 400px; */
+    /* background-image: url(http://23.106.158.25:8080/Project_BackSky_New/data/uploadimg/compressed/banner.jpg); */
     /* background-size: 100%; */
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat;
     background-size: auto 400px;
     background-position: center;
-    text-align: center;
+    text-align: center; */
     /* line-height: 400px; */
-    /* background-attachment: fixed; */
+    background-color: #F5F7F9;
 }
 .logo{
     color: #fff;
@@ -83,8 +87,6 @@ li{
     background-color: #F5F7F9;
     /* border: 1px solid #ED3434; */
 }
-.body-wrap div:last-child{
-}
 .info-wrap{
     height: 450px;
     /* background-color: rgba(87, 167, 207, 0.33); */
@@ -93,7 +95,7 @@ li{
     width: 193px;
     height: 350px;
     margin: 0 auto;
-    margin-top: 30px;
+    /* margin-top: 30px; */
     padding-top: 30px;
     background-color: #fff;
     /* background-color: rgba(66, 95, 243, 0.80); */
@@ -185,7 +187,7 @@ embed{
 .blog-wrap{
     /* height: 800px; */
     /* background-color: rgba(184, 37, 37, 0.10); */
-    padding-top: 35px;
+    /* padding-top: 35px; */
 }
 .blog-info{
     max-width: 660px;
