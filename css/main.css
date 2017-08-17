@@ -65,14 +65,15 @@ li{
 
 /*------------------------------------*/
 .banner-wrap{
-    height: 360px;
+    height: 450px;
     background-color: #F5F7F9;
 }
 
 .banner-wrap img{
     width: 100%;
     min-width: 1082px;
-    height: 360px;
+    height: 450px;
+    /* height: 360px; */
     filter: blur(0px);
     transition: all 0.3;
     left: 50%;
@@ -105,7 +106,7 @@ li{
     margin: 0 auto;
     /* margin-top: 30px; */
     padding-top: 30px;
-    background-color: #fff;
+    /* background-color: #fff; */
     /* background-color: rgba(66, 95, 243, 0.80); */
 }
 .profile-photo{
@@ -212,6 +213,8 @@ embed{
     color: #666666;
     font-size: 24px;
     padding: 20px 10px 5px 10px;
+    /* font-family: "圆体"; */
+    /* font-weight: bold */
 }
 .blog-info a:hover{
     color: #000;
@@ -232,10 +235,9 @@ embed{
     display: inline;
     right: 0px;
     border: 1px solid #A1A0A0;
-    /* color: #fff; */
     border-radius: 15px;
     padding: 0px 8px 0px 8px;
-    margin: 0px 5px;
+    margin: 0px 3px;
     font-size: 12px;
     /* transform: scale(0.55); */
     font-family: "Arial";
