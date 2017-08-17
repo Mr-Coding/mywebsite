@@ -65,6 +65,7 @@ li{
     height: 360px;
     background-color: #F5F7F9;
 }
+
 .banner-wrap img{
     width: 100%;
     min-width: 1082px;
@@ -74,6 +75,7 @@ li{
     left: 50%;
     transform: translate(-50%,0);
     position: absolute;
+
 }
 .logo{
     color: #fff;
