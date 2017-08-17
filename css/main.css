@@ -72,6 +72,10 @@ li{
     /* line-height: 400px; */
     background-color: #F5F7F9;
 }
+.banner-img{
+    position: absolute;
+    /* z-index: -999; */
+}
 .logo{
     color: #fff;
     font-size: 60px;
