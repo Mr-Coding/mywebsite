@@ -33,13 +33,16 @@ li{
 
 /*------------------------------------*/
 .nav-wrap{
-    height: 80px;
+    height: 60px;
     width: 100%;
     position: fixed;
     top: 0;
-    /* background-color: rgba(0, 0, 0, .1); */
-    line-height: 80px;
+    /* background-color: #1F617B; */
+    line-height: 60px;
     z-index: 999;
+}
+.nav-wrap .container{
+    /* background-color: rgba(0, 0, 0, .1); */
 }
 .welcome{
     font-size: 32px;
@@ -92,7 +95,7 @@ li{
     width: 193px;
     height: 350px;
     margin: 0 auto;
-    margin-top: 30px;
+    /* margin-top: 30px; */
     padding-top: 30px;
     background-color: #fff;
     /* background-color: rgba(66, 95, 243, 0.80); */
@@ -184,7 +187,7 @@ embed{
 .blog-wrap{
     /* height: 800px; */
     /* background-color: rgba(184, 37, 37, 0.10); */
-    padding-top: 35px;
+    /* padding-top: 35px; */
 }
 .blog-info{
     max-width: 660px;
