@@ -1,6 +1,19 @@
 body{
     /* background-color: #ccc; */
 }
+.second-icon{
+    width: 150px;
+    height: 55px;
+    margin-top: 5px;
+    display: inline-block;
+    /* border: 1px solid #ccc; */
+    background-image: url(../img/Frank.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.welcome{
+    display: none;
+}
 .nav-wrap .nav{
     display: none;
 }

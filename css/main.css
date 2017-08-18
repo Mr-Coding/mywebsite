@@ -48,6 +48,9 @@ li{
     font-size: 32px;
     margin-left: 35px;
 }
+.second-icon{
+    display: none;
+}
 .nav{
     float: right;
 }
