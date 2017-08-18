@@ -38,21 +38,19 @@ li{
     position: fixed;
     top: 0;
     /* background-color: #1F617B; */
-    line-height: 60px;
     z-index: 999;
-}
-.nav-wrap .container{
-    /* background-color: rgba(0, 0, 0, .1); */
 }
 .welcome{
     font-size: 32px;
     margin-left: 35px;
 }
-.second-icon{
+.second-icon,.menu-icon,#menu-checkbox{
     display: none;
 }
+
 .nav{
     float: right;
+    line-height: 60px;
 }
 .nav .item{
     font: 20px;
@@ -97,12 +95,10 @@ li{
 .body-wrap{
     /* height: 400px; */
     background-color: #F5F7F9;
-    /* border: 1px solid #ED3434; */
 }
 .info-wrap{
     height: 450px;
     /* margin-top: 80px; */
-    /* background-color: rgba(87, 167, 207, 0.33); */
 }
 .info{
     width: 193px;
@@ -110,7 +106,6 @@ li{
     margin: 0 auto;
     /* margin-top: 30px; */
     padding-top: 30px;
-    /* background-color: #fff; */
     /* background-color: rgba(66, 95, 243, 0.80); */
 }
 .profile-photo{

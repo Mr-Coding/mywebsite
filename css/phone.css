@@ -1,5 +1,25 @@
-body{
-    /* background-color: #ccc; */
+.nav-wrap .nav{
+    height: 200px;
+    width: 100%;
+    position: absolute;
+    line-height: 50px;
+    margin-top: -3px;
+    background-color:rgba(31,97,123, 1);
+    display: none;
+}
+.nav-wrap .nav a{
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    display: block;
+}
+.nav-wrap .nav a:last-child{
+    margin-right: 20px;
+}
+.phone-nav-bgcolor{
+    height: 60px;
+    background-color:rgba(31,97,123, 1);
+    /* border: 1px solid #000000; */
 }
 .second-icon{
     width: 150px;
@@ -11,12 +31,27 @@ body{
     background-size: 100%;
     background-repeat: no-repeat;
 }
-.welcome{
+.menu-icon{
+    width: 40px;
+    height: 35px;
+    margin-top: 12px;
+    margin-right: 10px;
+    border-top: 6px solid #BFE1EA;  
+    border-bottom: 6px solid #BFE1EA;  
+    background-color: #BFE1EA;  
+    padding: 8px 0;  
+    display: inline;
+    float: right;
+    background-clip: content-box;
+}
+#menu-checkbox:checked ~ .nav{
+    display: block;
+}
+
+.welcome,#menu-checkbox{
     display: none;
 }
-.nav-wrap .nav{
-    display: none;
-}
+
 .banner-wrap{
     display: none;
 }
