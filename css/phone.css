@@ -1,0 +1,27 @@
+body{
+    /* background-color: #ccc; */
+}
+.nav-wrap .nav{
+    display: none;
+}
+.banner-wrap{
+    display: none;
+}
+.info-wrap {
+    width: 100%;
+    display: none;
+}
+.blog-wrap{
+    width: 100%;
+    margin-top: 60px;
+    padding-right: 3px;
+    padding-left: 3px;
+}
+.nav-wrap,.changeColor{
+    background-color: rgba(31,97,123, 1);
+}
+.pagination-warp a{
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+}
