@@ -1,9 +1,10 @@
 const next = $(".next");
 const previous = $(".previous")
 var dataCount = 0;
-var toPages = 1;//记录当前所在页数
+var onPage = 1;//记录当前所在页数
 var allPage = 0;//记录总页数
 var jsonToPages = {};//整理过后的json
+const PAGE_LIST = 8;//每一页可以显示几条目录
 
 //------------------------
 //ajax和json配合生成文章列表
@@ -13,12 +14,13 @@ $.ajax({
     success:function(data){
         dataCount = data.length;
         // console.log(data);
-        jsonToPages = PaginationsFactor(data,5);
-        mekeList(jsonToPages,toPages);
+        jsonToPages = PaginationsFactor(data,PAGE_LIST);
+        mekeList(jsonToPages,onPage);
     }
 })
 //创建文章目录
 function mekeList(data,toPage){
+    disabledBtn(onPage,allPage,next,previous);//检测按钮是否可以继续向下/上
     $("div").remove(".blog-info");//清空已有的目录，如果有的话
     let content = "";
     for(let i = 0;i < data[toPage].length;i ++){
@@ -90,22 +92,41 @@ function pages(data,pageCount){
 
 //下一页
 next.on("click",function(){
-    console.log("下一页"+allPage);
-    if(toPages != allPage){
-        toPages ++;
-        mekeList(jsonToPages,toPages);
-        console.log(toPages);
+    console.log("下一页");
+    if(onPage != allPage){
+        onPage ++;
+        mekeList(jsonToPages,onPage);
+        console.log(onPage);
     }
 })
 //上一页
 previous.on("click",function(){
     console.log("上一页");
-    if(toPages != 1){
-        toPages --;
-        mekeList(jsonToPages,toPages);
-        console.log(toPages);
+    if(onPage != 1){
+        onPage --;
+        mekeList(jsonToPages,onPage);
+        console.log(onPage);
     }
 })
+
+//检测按钮是否可以继续向下/上，不行则禁用相应按钮
+// onPage:当前所在页数
+// allPage:所有页数
+// next & previous:上下按钮
+function disabledBtn(onPage,allPage,next,previous){
+    switch(onPage){
+        case 1:
+            previous.attr("disabled",true);
+        break;
+        case allPage:
+            next.attr("disabled",true);
+        break;
+        default:
+            next.attr("disabled",false);
+            previous.attr("disabled",false);
+        break
+    }
+}
 
 
 
