@@ -6,6 +6,7 @@ var allPage = 0;//记录总页数
 var jsonToPages = {};//整理过后的json
 const PAGE_LIST = 8;//每一页可以显示几条目录
 
+
 //------------------------
 //ajax和json配合生成文章列表
 $.ajax({
@@ -26,7 +27,7 @@ function mekeList(data,toPage){
     for(let i = 0;i < data[toPage].length;i ++){
         content = content + 
             `<div class="blog-info">
-                <a href="#" class="title">${data[toPage][i].title}</a>
+                <a class="title" href="file:///C:/Users/Frank/Desktop/加载文章/index.html?title=${encodeURI(data[toPage][i].title+mekeTagUrl(data,i,toPage))}">${data[toPage][i].title}</a>
                 <p class="time">${data[toPage][i].time}</p> by <p class="author">${data[toPage][i].author}</p>
                 <p class="tag-wrap">` +
                     mekeTagList(data,i,toPage)+
@@ -42,6 +43,16 @@ function mekeTagList(data,i,toPage){
         tagContent = tagContent + 
             `<a href="#" class="tag">${data[toPage][i].tag[j]}</a>`
     }
+    return tagContent;
+}
+//创建get里的标签参数
+function mekeTagUrl(data,i,toPage){
+    let tagContent = "";
+    for(var j = 0;j < data[toPage][i].tag.length;j ++){
+        tagContent = tagContent + 
+        `&tag${j+`=`+data[toPage][i].tag[j]}`
+    }
+    // console.log(tagContent);
     return tagContent;
 }
 
@@ -128,6 +139,11 @@ function disabledBtn(onPage,allPage,next,previous){
     }
 }
 
+
+
+$(".title").on("click",function(){
+    console.log("Test...");
+})
 
 
 //------------------------------------------------------
