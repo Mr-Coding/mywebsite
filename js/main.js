@@ -27,7 +27,7 @@ function mekeList(data,toPage){
     for(let i = 0;i < data[toPage].length;i ++){
         content = content + 
             `<div class="blog-info">
-                <a class="title" href="file:///C:/Users/Frank/Desktop/加载文章/index.html?title=${encodeURI(data[toPage][i].title+mekeTagUrl(data,i,toPage))}">${data[toPage][i].title}</a>
+                <a class="title" href="view.html?title=${encodeURI(data[toPage][i].title+mekeTagUrl(data,i,toPage))}">${data[toPage][i].title}</a>
                 <p class="time">${data[toPage][i].time}</p> by <p class="author">${data[toPage][i].author}</p>
                 <p class="tag-wrap">` +
                     mekeTagList(data,i,toPage)+
