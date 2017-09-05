@@ -6,6 +6,8 @@ var URL = "https://raw.githubusercontent.com/ching2016/MyWebsite/master/data/art
 // console.log(args);
 // console.log(articleTitle);
 
+$("title").text(articleTitle);
+
 $.ajax({
     url:URL,
     success:function(data){
@@ -27,6 +29,7 @@ function GetRequest() {
     }
     return theRequest;
  }
+
 
 // $(".title").on("click",function(){
 //     console.log(encodeURI(URL));

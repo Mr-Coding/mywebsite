@@ -4,6 +4,7 @@ var dataCount = 0;
 var onPage = 1;//记录当前所在页数
 var allPage = 0;//记录总页数
 var jsonToPages = {};//整理过后的json
+var jsonRes = {};//原json数据
 const PAGE_LIST = 8;//每一页可以显示几条目录
 
 
@@ -16,6 +17,7 @@ $.ajax({
         dataCount = data.length;
         // console.log(data);
         jsonToPages = PaginationsFactor(data,PAGE_LIST);
+        jsonRes = data;
         mekeList(jsonToPages,onPage);
     }
 })
@@ -141,9 +143,45 @@ function disabledBtn(onPage,allPage,next,previous){
 
 
 
-$(".title").on("click",function(){
-    console.log("Test...");
+
+// function getText(event){
+    // console.log(event);
+// }
+$("#search").on('keyup',function(e){
+    var input = Escape(e.target.value);
+    var [title,temp] = ["",""];
+    if(input.length < 2){
+        $(".search-result").empty();
+        console.log("小于2");
+        return;
+    }
+    // $(".search-result").show();
+    var reg = new RegExp(".*(?="+input+").*","i");
+    for(let i = 0;i < jsonRes.length;i ++){
+        title = jsonRes[i].title;
+        var b = reg.test(title);
+        if(b){
+            temp = temp + `<a target="_blank" href="view.html?title=${title}">${title}</a>`
+        }else{
+            // temp = `<a>无搜索结果</a>`
+        }
+    }
+    console.log(temp);
+    $(".search-result").html(temp);
 })
+function Escape(Str){
+    var Reg = /(\.|\*|\\|\/|\||\[|\]|\(|\)|\{|\}|\^|\$|\+)/g;
+    var s = Str.replace(Reg,function(a,b){
+        console.log(a+"\n"+b);
+        return "\\"+b;
+    })
+    // console.log(s);
+    return s
+}
+
+// $(".title").on("click",function(){
+//     console.log("Test...");
+// })
 
 
 //------------------------------------------------------
@@ -158,3 +196,20 @@ $(window).scroll(function(e){
     }
 
 })
+
+
+function debounce(func, wait, immediate) {
+    var timeout, result;
+    return function() {
+      var context = this, args = arguments;
+      var later = function() {
+        timeout = null;
+        if (!immediate) result = func.apply(context, args);
+      };
+      var callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) result = func.apply(context, args);
+      return result;
+    };
+  };

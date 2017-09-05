@@ -1,9 +1,9 @@
 .nav-wrap .nav{
-    height: 200px;
+    height: 160px;
     width: 100%;
     position: absolute;
     line-height: 50px;
-    margin-top: -7px;
+    margin-top: -10px;
     background-color:rgba(31,97,123, 1);
     display: none;
 }
@@ -21,6 +21,24 @@
     background-color:rgba(31,97,123, 1);
     /* border: 1px solid #000000; */
 }
+#search-wrap{
+    left: -25px;
+    top: 9px;
+}
+#search{
+    width: 80px;
+}
+#search-wrap{
+    width: 150px;    
+}
+#search-wrap .search-result{
+    width: 150px;
+}
+.search-result a{
+    width: 150px;
+    color: #515151    
+}
+
 .second-icon{
     width: 95px;
     height: 40px;
@@ -83,7 +101,10 @@
     height: 40px;
     background-color: rgba(31,97,123, 1);
 }
-.pagination-warp a,.next,.previous{{
+.pagination-warp{
+    margin: 0px;    
+}
+.pagination-warp a,.next,.previous{
     width: 35px;
     height: 35px;
     line-height: 35px;
