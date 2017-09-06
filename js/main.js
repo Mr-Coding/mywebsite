@@ -144,9 +144,6 @@ function disabledBtn(onPage,allPage,next,previous){
 
 
 
-// function getText(event){
-    // console.log(event);
-// }
 $("#search").on('keyup',function(e){
     var input = Escape(e.target.value);
     var [title,temp] = ["",""];
@@ -197,7 +194,7 @@ $(window).scroll(function(e){
 
 })
 
-
+// 
 function debounce(func, wait, immediate) {
     var timeout, result;
     return function() {

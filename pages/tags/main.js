@@ -1,5 +1,4 @@
 var jsonRes = {};
-var jsonRes2 = {};
 
 $.ajax({
     url:"https://raw.githubusercontent.com/ching2016/MyWebsite/master/data/data.json",
@@ -7,24 +6,62 @@ $.ajax({
     success:function(data){
         console.log(data);
         jsonRes = data;
-    }
-})
-$.ajax({
-    url:"https://raw.githubusercontent.com/ching2016/MyWebsite/master/data/tags.json",
-    dataType: 'json',
-    success:function(data){
-        console.log(data);    
         makeTagList(data);
     }
 })
 
-function makeTagList(tagJson){
-    console.log(tagJson.length);
-    console.log(tagJson[0]["微信"]);
-    for(arr in tagJson){
-        // console.log(arr);
+// 创建标签列表
+function makeTagList(data){
+    var tagArr = [""];
+    var [isRepeatTag,temp] = [false,""];
+    for(let i = 0;i < data.length;i ++){
+        for(let j = 0;j < data[i].tag.length;j ++){
+            let tag = data[i].tag[j];
+            isRepeatTag = isRepeat(tagArr,tag);
+            // console.log(tag+" --- isRepeatTag --- "+isRepeatTag);
+            if(!isRepeatTag){
+                tagArr.push(tag);
+                // console.log("--- 没有重复 ---");
+                temp = `<a class="tag tag-${i}">${tag}</a>`
+                $(".tags").append(temp);
+            }
+        }
     }
+    tagResult();
 }
+// 给makeTagList函数来检查是否有重复标签的函数
+function isRepeat(arr,str){
+　　for(var i in arr) {
+        if(arr[i] === str){
+    　　　　return true;
+        }   
+　　}
+　　return false;
+}
+// 点击标签后显示相应的文章的函数
+function tagResult(){
+    var [tag1,tag2] = ["",""];
+    $(".tags .tag").on("click",function(e){
+        let count = 0;
+        $(".tag-result-container").empty();
+        tag1 = e.target.innerHTML;
+        for(let i = 0;i < jsonRes.length;i ++){
+            for(let j = 0;j < jsonRes[i].tag.length;j ++){
+                tag2 = jsonRes[i].tag[j];
+                if(tag1 === tag2){
+                    count ++;
+                    // console.log(tag1+" "+tag2);  console.log(jsonRes[i].title);
+                    temp = `<a class="tag-result" target="_blank" href="../../view.html?title=${jsonRes[i].title}"><h3>${jsonRes[i].title}</h3></a>`;
+                    $(".tag-result-container").append(temp);                    
+                }
+            }
+        }
+        // $(".tag-result-count .count").html("");
+        $(".tag-result-count .count").text(count);
+    });
+}
+
+
 
 $("#search").on('keyup',function(e){
     console.log("--- keyup ---");
