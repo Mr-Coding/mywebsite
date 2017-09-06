@@ -1,4 +1,5 @@
 var jsonRes = {};
+var jsonRes2 = {};
 
 $.ajax({
     url:"https://raw.githubusercontent.com/ching2016/MyWebsite/master/data/data.json",
@@ -8,6 +9,20 @@ $.ajax({
         jsonRes = data;
     }
 })
+$.ajax({
+    url:"https://raw.githubusercontent.com/ching2016/MyWebsite/master/data/tags.json",
+    dataType: 'json',
+    success:function(data){
+        makeTagList(data.length);
+    }
+})
+
+function makeTagList(tagJson){
+    // console.log(tagJson.length);
+    for(arr in tagJson){
+        console.log(arr);
+    }
+}
 
 $("#search").on('keyup',function(e){
     console.log("--- keyup ---");
