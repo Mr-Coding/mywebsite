@@ -10,17 +10,19 @@ $.ajax({
     }
 })
 $.ajax({
-    url:"https://raw.githubusercontent.com/ching2016/MyWebsite/master/data/tags2.json",
+    url:"https://raw.githubusercontent.com/ching2016/MyWebsite/master/data/tags.json",
     dataType: 'json',
     success:function(data){
-        makeTagList(data.length);
+        console.log(data);    
+        makeTagList(data);
     }
 })
 
 function makeTagList(tagJson){
-    // console.log(tagJson.length);
+    console.log(tagJson.length);
+    console.log(tagJson[0]["微信"]);
     for(arr in tagJson){
-        console.log(arr);
+        // console.log(arr);
     }
 }
 
