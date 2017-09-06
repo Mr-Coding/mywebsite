@@ -18,6 +18,8 @@ $.ajax({
         // console.log(data);
         jsonToPages = PaginationsFactor(data,PAGE_LIST);
         jsonRes = data;
+        $(".blogs .number").text(data.length);
+        $(".tags .number").text(countTag(data));
         mekeList(jsonToPages,onPage);
     }
 })
@@ -176,9 +178,35 @@ function Escape(Str){
     return s
 }
 
-// $(".title").on("click",function(){
-//     console.log("Test...");
-// })
+
+// 创建标签列表
+function countTag(data){
+    var tagArr = [];
+    var [isRepeatTag] = [false];
+    for(let i = 0;i < data.length;i ++){
+        for(let j = 0;j < data[i].tag.length;j ++){
+            let tag = data[i].tag[j];
+            for(var s in tagArr) {
+                if(tagArr[s] === tag){
+                    isRepeatTag =  true;
+                }   
+        　　}
+            if(!isRepeatTag){
+                tagArr.push(tag);
+            }
+        }
+    }
+    return tagArr.length + 1;
+}
+// 给countTag函数来检查是否有重复标签的函数
+function isRepeat(arr,str){
+　　for(var i in arr) {
+        if(arr[i] === str){
+    　　　　return true;
+        }   
+　　}
+　　return false;
+}
 
 
 //------------------------------------------------------
