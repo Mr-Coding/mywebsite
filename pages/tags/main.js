@@ -10,7 +10,7 @@ $.ajax({
     }
 })
 $.ajax({
-    url:"https://raw.githubusercontent.com/ching2016/MyWebsite/master/data/tags.json",
+    url:"https://raw.githubusercontent.com/ching2016/MyWebsite/master/data/tags2.json",
     dataType: 'json',
     success:function(data){
         makeTagList(data.length);
