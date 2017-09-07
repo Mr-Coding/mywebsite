@@ -3,8 +3,6 @@ var args = GetRequest();
 var articleTitle = args['title'];
 var URL = "https://raw.githubusercontent.com/ching2016/MyWebsite/master/data/article/"+articleTitle+".txt"
 
-// console.log(args);
-// console.log(articleTitle);
 
 $("title").text(articleTitle);
 
@@ -28,7 +26,7 @@ function GetRequest() {
        }
     }
     return theRequest;
- }
+}
 
 
 // $(".title").on("click",function(){

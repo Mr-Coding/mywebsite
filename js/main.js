@@ -1,5 +1,6 @@
 const next = $(".next");
 const previous = $(".previous")
+const search = $("#search");
 var dataCount = 0;
 var onPage = 1;//记录当前所在页数
 var allPage = 0;//记录总页数
@@ -31,7 +32,7 @@ function mekeList(data,toPage){
     for(let i = 0;i < data[toPage].length;i ++){
         content = content + 
             `<div class="blog-info">
-                <a class="title" href="view.html?title=${encodeURI(data[toPage][i].title+mekeTagUrl(data,i,toPage))}">${data[toPage][i].title}</a>
+                <a class="title" href="pages/view/view.html?title=${encodeURI(data[toPage][i].title+mekeTagUrl(data,i,toPage))}">${data[toPage][i].title}</a>
                 <p class="time">${data[toPage][i].time}</p> by <p class="author">${data[toPage][i].author}</p>
                 <p class="tag-wrap">` +
                     mekeTagList(data,i,toPage)+
@@ -44,8 +45,9 @@ function mekeList(data,toPage){
 function mekeTagList(data,i,toPage){
     let tagContent = "";
     for(let j = 0;j < data[toPage][i].tag.length;j ++){
+        let tag = data[toPage][i].tag[j];
         tagContent = tagContent + 
-            `<a href="#" class="tag">${data[toPage][i].tag[j]}</a>`
+            `<a href="pages/tags/tags.html?tag=${tag}" class="tag">${tag}</a>`
     }
     return tagContent;
 }
@@ -143,24 +145,29 @@ function disabledBtn(onPage,allPage,next,previous){
     }
 }
 
+// 隐藏或显示搜索结果
+search.focus(function(){
+    $("#search-wrap .search-result").css('display','block');        
+});
+search.blur(function(){
+    $("#search-wrap .search-result").css('display','none');
+});
 
-
-
-$("#search").on('keyup',function(e){
+search.on('keyup',function(e){
     var input = Escape(e.target.value);
     var [title,temp] = ["",""];
+ 
     if(input.length < 2){
         $(".search-result").empty();
         // console.log("小于2");
         return;
     }
-    // $(".search-result").show();
     var reg = new RegExp(".*(?="+input+").*","i");
     for(let i = 0;i < jsonRes.length;i ++){
         title = jsonRes[i].title;
         var b = reg.test(title);
         if(b){
-            temp = temp + `<a target="_blank" href="view.html?title=${title}">${title}</a>`
+            temp = temp + `<a target="_blank" href="pages/view/view.html?title=${title}">${title}</a>`
         }else{
             // temp = `<a>无搜索结果</a>`
         }
@@ -182,22 +189,20 @@ function Escape(Str){
 // 创建标签列表
 function countTag(data){
     var tagArr = [];
-    var [isRepeatTag] = [false];
-    var count = 0;
+    var [isRepeatTag,count] = [false,0];
     for(let i = 0;i < data.length;i ++){
         for(let j = 0;j < data[i].tag.length;j ++){
             let tag = data[i].tag[j];
-            for(var s in tagArr) {
-                if(tagArr[s] === tag){
-                    isRepeatTag =  true;
-                }   
-        　　}
+            isRepeatTag = isRepeat(tagArr,tag);
+            // console.log(tag+" --- isRepeatTag --- "+isRepeatTag);
             if(!isRepeatTag){
                 tagArr.push(tag);
+                // console.log("--- 没有重复 ---");
+                count ++;
             }
         }
     }
-    return tagArr.length;
+    return count;
 }
 // 给countTag函数来检查是否有重复标签的函数
 function isRepeat(arr,str){

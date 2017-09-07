@@ -1,4 +1,6 @@
 var jsonRes = {};
+var args = GetRequest();
+const search = $("#search");
 
 $.ajax({
     url:"https://raw.githubusercontent.com/ching2016/MyWebsite/master/data/data.json",
@@ -12,7 +14,7 @@ $.ajax({
 
 // 创建标签列表
 function makeTagList(data){
-    var tagArr = [""];
+    var tagArr = [];
     var [isRepeatTag,temp] = [false,""];
     var count = 0;
     for(let i = 0;i < data.length;i ++){
@@ -29,7 +31,7 @@ function makeTagList(data){
             }
         }
     }
-    tagResult();
+    tagResult(tagArr);
 }
 // 给makeTagList函数来检查是否有重复标签的函数
 function isRepeat(arr,str){
@@ -40,9 +42,36 @@ function isRepeat(arr,str){
 　　}
 　　return false;
 }
-// 点击标签后显示相应的文章的函数
-function tagResult(){
+
+function tagInit(tagArr){
     var [tag1,tag2] = ["",""];
+    if(args.tag){   // 如果有get传值就用get传的值
+        tag1 = args.tag;
+    }else{  //  没有就用第一个
+        tag1 = tagArr[0];    
+    }
+    let count = 0;
+    $(".tag-result-container").empty();
+    // tag1 = tagArr[0];
+    for(let i = 0;i < jsonRes.length;i ++){
+        for(let j = 0;j < jsonRes[i].tag.length;j ++){
+            tag2 = jsonRes[i].tag[j];
+            if(tag1 === tag2){
+                count ++;
+                // console.log(tag1+" "+tag2);  console.log(jsonRes[i].title);
+                temp = `<a class="tag-result" target="_blank" href="../view/view.html?title=${jsonRes[i].title}"><h3>${jsonRes[i].title}</h3></a>`;
+                $(".tag-result-container").append(temp);                    
+            }
+        }
+    }
+    // $(".tag-result-count").text(tag1+" 标签下共"+count+"篇");
+    $(".tag-result-count").html("<span style=\"font-size:20px;\">"+tag1+"</span> 标签下共"+count+"篇");
+    // $(".tag-result-count .count").text(count);
+}
+// 点击标签后显示相应的文章的函数
+function tagResult(tagArr){
+    var [tag1,tag2] = ["",""];
+    tagInit(tagArr);
     $(".tags .tag").on("click",function(e){
         let count = 0;
         $(".tag-result-container").empty();
@@ -53,19 +82,25 @@ function tagResult(){
                 if(tag1 === tag2){
                     count ++;
                     // console.log(tag1+" "+tag2);  console.log(jsonRes[i].title);
-                    temp = `<a class="tag-result" target="_blank" href="../../view.html?title=${jsonRes[i].title}"><h3>${jsonRes[i].title}</h3></a>`;
+                    temp = `<a class="tag-result" target="_blank" href="../view/view.html?title=${jsonRes[i].title}"><h3>${jsonRes[i].title}</h3></a>`;
                     $(".tag-result-container").append(temp);                    
                 }
             }
         }
-        // $(".tag-result-count .count").html("");
-        $(".tag-result-count .count").text(count);
+        $(".tag-result-count").html("<span style=\"font-size:20px;\">"+tag1+"</span> 标签下共"+count+"篇");
     });
 }
 
 
+// 隐藏或显示搜索结果
+search.focus(function(){
+    $("#search-wrap .search-result").css('display','block');        
+});
+search.blur(function(){
+    $("#search-wrap .search-result").css('display','none');
+});
 
-$("#search").on('keyup',function(e){
+search.on('keyup',function(e){
     // console.log("--- keyup ---");
     var input = Escape(e.target.value);
     var [title,temp] = ["",""];
@@ -78,12 +113,11 @@ $("#search").on('keyup',function(e){
         title = jsonRes[i].title;
         var b = reg.test(title);
         if(b){
-            temp = temp + `<a target="_blank" href="../../view.html?title=${title}">${title}</a>`
+            temp = temp + `<a target="_blank" href="../view/view.html?title=${title}">${title}</a>`
         }else{
             // temp = `<a>无搜索结果</a>`
         }
     }
-    // console.log(temp);
     $(".search-result").html(temp);
 })
 function Escape(Str){
@@ -93,6 +127,20 @@ function Escape(Str){
     })
     // console.log(s);
     return s
+}
+
+//解密并获取url参数
+function GetRequest() {
+    var url = decodeURI(location.search); //获取url中"?"符后的字串
+    var theRequest = new Object();
+    if (url.indexOf("?") != -1) {
+       var str = url.substr(1);
+       strs = str.split("&");
+       for(var i = 0; i < strs.length; i ++) {
+          theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+       }
+    }
+    return theRequest;
 }
 
 //------------------------------------------------------

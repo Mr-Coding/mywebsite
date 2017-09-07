@@ -103,9 +103,9 @@ li{
     display: none;
     border-bottom: 1px solid rgb(42, 134, 170);;    
 }
-#search-wrap:hover .search-result{
+/* #search-wrap:hover .search-result{
     display: block;
-}
+} */
 
 .search-result a{
     width: 180px;
