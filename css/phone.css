@@ -84,6 +84,9 @@
     padding-right: 3px;
     padding-left: 3px;
 }
+.blog-wrap .tag{
+    display: none;
+}
 .blog-info{
     height: 55px;
 }
