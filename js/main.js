@@ -32,7 +32,7 @@ function mekeList(data,toPage){
     for(let i = 0;i < data[toPage].length;i ++){
         content = content + 
             `<div class="blog-info">
-                <a class="title" href="pages/view/view.html?title=${encodeURI(data[toPage][i].title+mekeTagUrl(data,i,toPage))}">${data[toPage][i].title}</a>
+                <a target="_blank" class="title" href="pages/view/view.html?title=${encodeURI(data[toPage][i].title+mekeTagUrl(data,i,toPage))}">${data[toPage][i].title}</a>
                 <p class="time">${data[toPage][i].time}</p> by <p class="author">${data[toPage][i].author}</p>
                 <p class="tag-wrap">` +
                     mekeTagList(data,i,toPage)+
@@ -47,7 +47,7 @@ function mekeTagList(data,i,toPage){
     for(let j = 0;j < data[toPage][i].tag.length;j ++){
         let tag = data[toPage][i].tag[j];
         tagContent = tagContent + 
-            `<a href="pages/tags/tags.html?tag=${tag}" class="tag">${tag}</a>`
+            `<a target="_blank" href="pages/tags/tags.html?tag=${tag}" class="tag">${tag}</a>`
     }
     return tagContent;
 }
