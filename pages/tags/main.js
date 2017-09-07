@@ -4,7 +4,7 @@ $.ajax({
     url:"https://raw.githubusercontent.com/ching2016/MyWebsite/master/data/data.json",
     dataType: 'json',
     success:function(data){
-        console.log(data);
+        // console.log(data);
         jsonRes = data;
         makeTagList(data);
     }
@@ -14,6 +14,7 @@ $.ajax({
 function makeTagList(data){
     var tagArr = [""];
     var [isRepeatTag,temp] = [false,""];
+    var count = 0;
     for(let i = 0;i < data.length;i ++){
         for(let j = 0;j < data[i].tag.length;j ++){
             let tag = data[i].tag[j];
@@ -22,8 +23,9 @@ function makeTagList(data){
             if(!isRepeatTag){
                 tagArr.push(tag);
                 // console.log("--- 没有重复 ---");
-                temp = `<a class="tag tag-${i}">${tag}</a>`
+                temp = `<a class="tag tag-${count}">${tag}</a>`
                 $(".tags").append(temp);
+                count ++;
             }
         }
     }
@@ -64,12 +66,11 @@ function tagResult(){
 
 
 $("#search").on('keyup',function(e){
-    console.log("--- keyup ---");
+    // console.log("--- keyup ---");
     var input = Escape(e.target.value);
     var [title,temp] = ["",""];
     if(input.length < 2){
         $(".search-result").empty();
-        console.log("小于2");
         return;
     }
     var reg = new RegExp(".*(?="+input+").*","i");
@@ -82,13 +83,12 @@ $("#search").on('keyup',function(e){
             // temp = `<a>无搜索结果</a>`
         }
     }
-    console.log(temp);
+    // console.log(temp);
     $(".search-result").html(temp);
 })
 function Escape(Str){
     var Reg = /(\.|\*|\\|\/|\||\[|\]|\(|\)|\{|\}|\^|\$|\+)/g;
     var s = Str.replace(Reg,function(a,b){
-        console.log(a+"\n"+b);
         return "\\"+b;
     })
     // console.log(s);

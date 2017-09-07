@@ -87,7 +87,7 @@ function PaginationsFactor(data,pageCount = 10){
         j[n+1] = content;
         content = []; //清空临时数组
     }
-    console.log(j);
+    // console.log(j);
     return j;
 }
 
@@ -96,10 +96,10 @@ function pages(data,pageCount){
     let count = data/pageCount;
     let allPages = 0;   //总页数
     if(data%pageCount){
-        console.log("不能整除 "+count+", "+parseInt(count+1));
+        // console.log("不能整除 "+count+", "+parseInt(count+1));
         allPages = parseInt(count+1); //去掉小数点再自加1
     }else{
-        console.log("能整除 "+count);
+        // console.log("能整除 "+count);
         allPages = count;
     }
     return allPages;
@@ -107,20 +107,20 @@ function pages(data,pageCount){
 
 //下一页
 next.on("click",function(){
-    console.log("下一页");
+    // console.log("下一页");
     if(onPage != allPage){
         onPage ++;
         mekeList(jsonToPages,onPage);
-        console.log(onPage);
+        // console.log(onPage);
     }
 })
 //上一页
 previous.on("click",function(){
-    console.log("上一页");
+    // console.log("上一页");
     if(onPage != 1){
         onPage --;
         mekeList(jsonToPages,onPage);
-        console.log(onPage);
+        // console.log(onPage);
     }
 })
 
@@ -151,7 +151,7 @@ $("#search").on('keyup',function(e){
     var [title,temp] = ["",""];
     if(input.length < 2){
         $(".search-result").empty();
-        console.log("小于2");
+        // console.log("小于2");
         return;
     }
     // $(".search-result").show();
@@ -165,13 +165,13 @@ $("#search").on('keyup',function(e){
             // temp = `<a>无搜索结果</a>`
         }
     }
-    console.log(temp);
+    // console.log(temp);
     $(".search-result").html(temp);
 })
 function Escape(Str){
     var Reg = /(\.|\*|\\|\/|\||\[|\]|\(|\)|\{|\}|\^|\$|\+)/g;
     var s = Str.replace(Reg,function(a,b){
-        console.log(a+"\n"+b);
+        // console.log(a+"\n"+b);
         return "\\"+b;
     })
     // console.log(s);
@@ -183,6 +183,7 @@ function Escape(Str){
 function countTag(data){
     var tagArr = [];
     var [isRepeatTag] = [false];
+    var count = 0;
     for(let i = 0;i < data.length;i ++){
         for(let j = 0;j < data[i].tag.length;j ++){
             let tag = data[i].tag[j];
@@ -196,7 +197,7 @@ function countTag(data){
             }
         }
     }
-    return tagArr.length + 1;
+    return tagArr.length;
 }
 // 给countTag函数来检查是否有重复标签的函数
 function isRepeat(arr,str){

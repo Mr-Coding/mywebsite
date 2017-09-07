@@ -9,31 +9,31 @@
         "title":"微信小程序入门",
         "author":"好彩",
         "time":"2017-08-20",
-        "tag":["微信"]
+        "tag":["微信","教学","微信小程序"]
     },
     {
         "title":"Spring 框架笔记",
         "author":"Frank",
         "time":"2017-08-20",
-        "tag":["Spring"]
+        "tag":["Spring","笔记"]
     },
     {
         "title":"CSS 动画笔记",
         "author":"Ching",
         "time":"2017-08-20",
-        "tag":["CSS","动画"]
+        "tag":["CSS","动画","笔记"]
     },
     {
         "title":"PHP 入门笔记",
         "author":"Frank",
         "time":"2017-08-20",
-        "tag":["PHP"]
+        "tag":["PHP","教学","入门"]
     },
     {
         "title":"Android 入门笔记",
         "author":"Frank",
         "time":"2017-08-20",
-        "tag":["Android","安卓"]
+        "tag":["Android","安卓","入门"]
     },
     {
         "title":"Java编程思想 笔记",
