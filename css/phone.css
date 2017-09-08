@@ -39,16 +39,6 @@
     color: #515151    
 }
 
-.second-icon{
-    width: 95px;
-    height: 40px;
-    margin-top: 3px;
-    display: inline-block;
-    /* border: 1px solid #ccc; */
-    background-image: url(../img/Frank.png);
-    background-size: 100%;
-    background-repeat: no-repeat;
-}
 .menu-icon{
     width: 30px;  
     height: 25px;  

@@ -73,7 +73,7 @@ li{
 .nav .item:last-child{
     margin-right: 45px;
 }
-.nav .item:hover{
+.nav .item:not(.tag):hover{
     color: #fff;
 }
 
@@ -110,8 +110,8 @@ li{
     float: right;
     z-index: 999;
     position: absolute;
-    display: none;
-    border-radius: 0px 0px 8px 8px;        
+    /* display: none; */
+    border-radius: 0px 0px 8px 8px;
     /* border-bottom: 1px solid rgb(42, 134, 170); */
 }
 #search-wrap:hover .search-result{

@@ -93,9 +93,9 @@ function tagResult(tagArr){
 
 
 // 隐藏或显示搜索结果
-// search.focus(function(){
-//     $("#search-wrap .search-result").css('display','block');        
-// });
+search.focus(function(){
+    $("#search-wrap .search-result").css('display','block');        
+});
 // search.blur(function(){
 //     $("#search-wrap .search-result").css('display','none');
 // });
@@ -103,7 +103,7 @@ function tagResult(tagArr){
 search.on('keyup',function(e){
     // console.log("--- keyup ---");
     var input = Escape(e.target.value);
-    var [title,temp] = ["",""];
+    var [title,temp,count] = ["","",0];
     if(input.length < 2){
         $(".search-result").empty();
         return;
@@ -114,15 +114,17 @@ search.on('keyup',function(e){
         var b = reg.test(title);
         if(b){
             temp = temp + `<a target="_blank" href="../view/view.html?title=${title}">${title}</a>`
-        }else{
-            // temp = `<a>无搜索结果</a>`
+            count ++;
         }
     }
+    if(count === 0){
+        temp = `<a>无搜索结果</a>`;
+    }
     temp = temp + `<span class="close-search-result">关闭<span/>`;
-    // $(".close-search-result").on("click",function(){
-        // $("#search-wrap .search-result").css('display','none');
-    // })
     $(".search-result").html(temp);
+    $(".close-search-result").on("click",function(){
+        $("#search-wrap .search-result").css('display','none');
+    })
 })
 function Escape(Str){
     var Reg = /(\.|\*|\\|\/|\||\[|\]|\(|\)|\{|\}|\^|\$|\+)/g;

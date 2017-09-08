@@ -146,16 +146,16 @@ function disabledBtn(onPage,allPage,next,previous){
 }
 
 // 隐藏或显示搜索结果
-// search.focus(function(){
-//     $("#search-wrap .search-result").css('display','block');
-// });
+search.focus(function(){
+    $("#search-wrap .search-result").css('display','block');
+});
 // search.blur(function(){
 //     $("#search-wrap .search-result").css('display','none');
 // });
 
 search.on('keyup',function(e){
     var input = Escape(e.target.value);
-    var [title,temp] = ["",""];
+    var [title,temp,count] = ["","",0];
  
     if(input.length < 2){
         $(".search-result").empty();
@@ -163,26 +163,26 @@ search.on('keyup',function(e){
         return;
     }
     var reg = new RegExp(".*(?="+input+").*","i");
-    for(let i = 0;i < jsonRes.length;i ++){
+    for(var i = 0;i < jsonRes.length;i ++){
         title = jsonRes[i].title;
         var b = reg.test(title);
         if(b){
             temp = temp + `<a target="_blank" href="pages/view/view.html?title=${title}">${title}</a>`
-        }else{
-            // temp = `<a>无搜索结果</a>`
+            count ++;            
         }
     }
-    temp = temp + `<span class="close-search-result">关闭<span/>`;
-    // console.log(temp);
+    if(count === 0){
+        temp = `<a>无搜索结果</a>`;
+    }
+    temp = temp + `<span class="close-search-result">关闭<span/>`;    
     $(".search-result").html(temp);
-    // $(".close-search-result").on("click",function(){
-    //     $("#search-wrap .search-result").css('display','none');
-    // })
+    $(".close-search-result").on("click",function(){
+        $("#search-wrap .search-result").css('display','none');
+    })
 })
 function Escape(Str){
     var Reg = /(\.|\*|\\|\/|\||\[|\]|\(|\)|\{|\}|\^|\$|\+)/g;
     var s = Str.replace(Reg,function(a,b){
-        // console.log(a+"\n"+b);
         return "\\"+b;
     })
     // console.log(s);

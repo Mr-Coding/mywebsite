@@ -47,7 +47,7 @@ li{
     font-size: 32px;
     margin-left: 35px;
 }
-.second-icon,.menu-icon,#menu-checkbox{
+.menu-icon,#menu-checkbox{
     display: none;
 }
 
@@ -100,7 +100,7 @@ li{
     float: right;
     z-index: 999;
     position: absolute;
-    display: none;
+    /* display: none; */
     border-radius: 0px 0px 8px 8px;    
     /* border-bottom: 1px solid rgb(42, 134, 170);     */
 }
@@ -143,6 +143,9 @@ li{
 .close-search-result:hover{
     background-color: rgb(42, 134, 170);    
 }
+/* .close-search-result:active .search-result{
+    display: none;
+} */
 
 /*------------------------------------*/
 .banner-wrap{
