@@ -93,12 +93,12 @@ function tagResult(tagArr){
 
 
 // 隐藏或显示搜索结果
-search.focus(function(){
-    $("#search-wrap .search-result").css('display','block');        
-});
-search.blur(function(){
-    $("#search-wrap .search-result").css('display','none');
-});
+// search.focus(function(){
+//     $("#search-wrap .search-result").css('display','block');        
+// });
+// search.blur(function(){
+//     $("#search-wrap .search-result").css('display','none');
+// });
 
 search.on('keyup',function(e){
     // console.log("--- keyup ---");
@@ -118,6 +118,7 @@ search.on('keyup',function(e){
             // temp = `<a>无搜索结果</a>`
         }
     }
+    temp = temp + `<span class="close-search-result">关闭<span/>`;
     $(".search-result").html(temp);
 })
 function Escape(Str){
