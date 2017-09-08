@@ -119,6 +119,9 @@ search.on('keyup',function(e){
         }
     }
     temp = temp + `<span class="close-search-result">关闭<span/>`;
+    // $(".close-search-result").on("click",function(){
+        // $("#search-wrap .search-result").css('display','none');
+    // })
     $(".search-result").html(temp);
 })
 function Escape(Str){

@@ -175,6 +175,9 @@ search.on('keyup',function(e){
     temp = temp + `<span class="close-search-result">关闭<span/>`;
     // console.log(temp);
     $(".search-result").html(temp);
+    // $(".close-search-result").on("click",function(){
+    //     $("#search-wrap .search-result").css('display','none');
+    // })
 })
 function Escape(Str){
     var Reg = /(\.|\*|\\|\/|\||\[|\]|\(|\)|\{|\}|\^|\$|\+)/g;
